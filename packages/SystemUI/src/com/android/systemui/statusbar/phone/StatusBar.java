@@ -1043,7 +1043,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             Log.e(TAG, "Unable to register notification listener", e);
         }
 
-
         if (DEBUG) {
             Log.d(TAG, String.format(
                     "init: icons=%d disabled=0x%08x lights=0x%08x menu=0x%08x imeButton=0x%08x",
@@ -3794,9 +3793,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
         }
 
-        int mClockLocation = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.STATUSBAR_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);
-
         public void setView(View tv) {
             mTickerView = tv;
         }
@@ -6328,6 +6324,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LESS_BORING_HEADS_UP),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUSBAR_CLOCK_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -6377,6 +6376,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LESS_BORING_HEADS_UP))) {
                 setUseLessBoringHeadsUp();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.STATUSBAR_CLOCK_STYLE))) {
+                updateClockPosition();
             }
         }
 
@@ -6391,6 +6393,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateRecentsMode();
             updateDozeBrightness();
             setForceAmbient();
+            updateClockPosition();
         }
     }
 
@@ -6474,6 +6477,11 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mAmbientMediaPlaying != 0 && mAmbientIndicationContainer != null) {
             ((AmbientIndicationContainer)mAmbientIndicationContainer).setIndication(mMediaMetadata);
         }
+    }
+
+    private void updateClockPosition() {
+        mClockLocation = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.STATUSBAR_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);
     }
 
     protected final ContentObserver mNavbarObserver = new ContentObserver(mHandler) {

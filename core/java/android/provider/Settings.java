@@ -4132,7 +4132,70 @@ public final class Settings {
         public static final String QS_COLUMNS_LANDSCAPE = "qs_columns_landscape";
 
         /**
-         * Wheter to show network traffic indicator in statusbar
+         * Whether to display the reboot option on the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_REBOOT = "powermenu_reboot";
+
+        /**
+         * Whether to display the power menu advanced reboot option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_ADVANCED_REBOOT = "powermenu_ls_advanced_reboot";
+
+        /**
+         * Whether to display the power menu screenshot option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_SCREENSHOT = "powermenu_ls_screenshot";
+
+        /**
+         * Whether to display the power menu airplane mode option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_AIRPLANE = "powermenu_ls_airplane";
+
+        /**
+         * Whether to display the power menu reboot option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_REBOOT = "powermenu_ls_reboot";
+
+        /**
+         * Whether to display the advanced reboot option on the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_ADVANCED_REBOOT = "powermenu_advanced_reboot";
+
+        /**
+         * Whether to display the screenshot option on the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
+
+        /**
+         * Whether to display the airplane option on the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
+
+        /**
+         *
+         * Whether to display the power menu dialog while on the lockscreen
+         * @hide
+         */
+        public static final String POWERMENU_LOCKSCREEN = "powermenu_lockscreen";
+
+        /**
+         * Whether to show network traffic indicator in statusbar
          * @hide
          */
         public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
@@ -4161,69 +4224,6 @@ public final class Settings {
          * @hide
          */
         public static final String VIBRATION_ON_CHARGE_STATE_CHANGED = "vibration_on_charge_state_changed";
-
-        /**
-         * Whether to display sound panel in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_SOUNDPANEL = "powermenu_soundpanel";
-
-        /**
-         * Whether to display screenshot in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
-
-        /**
-         * Whether to display settings in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_SETTINGS = "powermenu_settings";
-
-        /**
-         * Whether to display lock in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_LOCKDOWN = "powermenu_lockdown";
-
-        /**
-         * Whether to display airplane in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
-
-        /**
-         * Whether to display reboot in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_RESTART = "powermenu_restart";
-
-        /**
-         * Whether to display advanced reboot in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_RESTART_RECOVERY = "powermenu_restart_recovery";
-
-        /**
-         * Whether to display power in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_POWER = "powermenu_power";
-
-        /**
-         * Whether to display the users option in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_USERS = "powermenu_users";
 
         /**
          * Whether to use icon pack for Recents
@@ -4498,7 +4498,7 @@ public final class Settings {
          */
         public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
 
-               /**
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *

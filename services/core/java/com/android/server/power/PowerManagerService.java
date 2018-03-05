@@ -265,8 +265,10 @@ public final class PowerManagerService extends SystemService
     private int mButtonTimeout;
     private int mButtonBrightness;
     private int mButtonBrightnessSettingDefault;
+
     private boolean mButtonPressed = false;
     private boolean mButtonOn = false;
+    private boolean mButtonLightOnKeypressOnly;
 
     private final Object mLock = LockGuard.installNewLock(LockGuard.INDEX_POWER);
 
@@ -1508,8 +1510,10 @@ public final class PowerManagerService extends SystemService
             } else {
                 if (eventTime > mLastUserActivityTime) {
                     mButtonPressed = event == PowerManager.USER_ACTIVITY_EVENT_BUTTON;
-                    if ((mButtonBacklightOnTouchOnly && mButtonPressed)
-                            || eventTime == mLastWakeTime) {
+                    if (eventTime == mLastWakeTime ||
+                            (mButtonLightOnKeypressOnly && mButtonPressed &&
+                                    (flags & PowerManager.USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS)
+                                            == 0)) {
                         mButtonPressed = true;
                         mLastButtonActivityTime = eventTime;
                     }
@@ -2115,7 +2119,7 @@ public final class PowerManagerService extends SystemService
                                             nextTimeout = now + mButtonTimeout;
                                         }
                                     }
-                                } else if (mButtonBacklightOnTouchOnly && mButtonOn &&
+                                } else if (mButtonLightOnKeypressOnly && mButtonOn &&
                                         mLastButtonActivityTime + mButtonTimeout < nextTimeout) {
                                     nextTimeout = mLastButtonActivityTime + mButtonTimeout;
                                 }
@@ -2351,9 +2355,6 @@ public final class PowerManagerService extends SystemService
             if (startDreaming) {
                 mDreamManager.stopDream(false /*immediate*/);
                 mDreamManager.startDream(wakefulness == WAKEFULNESS_DOZING);
-
-                // notify power-HAL we transition into dozing/dreaming
-                powerHintInternal(CandyPowerHint.DOZING, 1);
             }
             isDreaming = mDreamManager.isDreaming();
         } else {
@@ -2370,6 +2371,9 @@ public final class PowerManagerService extends SystemService
                 } else {
                     Slog.i(TAG, "Dreaming...");
                 }
+
+                // notify power-HAL we transition into dozing/dreaming
+                powerHintInternal(CandyPowerHint.DOZING, 1);
             }
 
             // If preconditions changed, wait for the next iteration to determine

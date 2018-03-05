@@ -140,7 +140,7 @@ void android_server_PowerManagerService_userActivity(nsecs_t eventTime, int32_t 
         JNIEnv* env = AndroidRuntime::getJNIEnv();
 
         int flags = 0;
-        if (keyCode == AKEYCODE_VOLUME_UP || keyCode == AKEYCODE_VOLUME_DOWN || keyCode == AKEYCODE_HOME) {
+        if (keyCode == AKEYCODE_VOLUME_UP || keyCode == AKEYCODE_VOLUME_DOWN) {
             flags |= USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS;
         }
 

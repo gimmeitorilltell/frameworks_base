@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 The LiquidRemix Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+
+    <!-- Floating action button -->
+    <color name="fab_color">@*android:color/material_deep_teal_500</color>
+    <color name="floating_action_button_icon_color">#ffffff</color>
+
+    <!-- Navbar icon Colors -->
+    <color name="icon_color_back">@android:color/white</color>
+    <color name="icon_color_ime_switcher">@android:color/white</color>
+    <color name="icon_color_split_screen">@android:color/white</color>
+    <color name="icon_color_home">@android:color/white</color>
+    <color name="icon_color_overview">@android:color/white</color>
+    <color name="icon_color_back_dark">@android:color/black</color>
+    <color name="icon_color_ime_switcher_dark">@android:color/black</color>
+    <color name="icon_color_split_screen_dark">@android:color/black</color>
+    <color name="icon_color_home_dark">@android:color/black</color>
+    <color name="icon_color_overview_dark">@android:color/black</color>
+
+    <!-- Screenshot action colors -->
+    <color name="screenshot_flash_color">#b3adadad</color> <!-- light grey with some transparency -->
+    <color name="screenshot_background_color">@android:color/black</color>
+
+    <!-- Zen QS panel -->
+    <color name="zen_qs_panel_close_button_color">@android:color/white</color>
+
+    <!-- Screen pinning layout -->
+    <color name="screen_pinning_background_color">@*android:color/accent_device_default_light</color>
+    <color name="screen_pinning_title_text">@android:color/white</color>
+    <color name="screen_pinning_description_text">@android:color/white</color>
+    <color name="screen_pinning_button_text">@android:color/white</color>
+    <color name="screen_pinning_bg_circ_color">#40FFFFFF</color>
+    <color name="screen_pinning_nav_icon_hightlight_outer_color">@android:color/white</color>
+
+    <color name="legacy_icon_background">#FFFFFF</color>
+
+    <!-- Zen QS panel -->
+    <color name="zen_qs_panel_close_button_color">@android:color/white</color>
+
+</resources>

@@ -4623,12 +4623,6 @@ public final class Settings {
          * Use latest screen-on brightness value for Ambient Display
          * @hide
          */
-        public static final String AMBIENT_DOZE_AUTO_BRIGHTNESS = "ambient_doze_auto_brightness";
-
-        /**
-         * Use latest screen-on brightness value for Ambient Display
-         * @hide
-         */
         public static final String LAST_DOZE_AUTO_BRIGHTNESS = "last_doze_auto_brightness";
 
         /**
@@ -4649,6 +4643,14 @@ public final class Settings {
          * @hide
          */
         public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
+
+        /**
+         * Stores the app to be launched if the user taps on the screenshot notification edit button
+         * @hide
+         */
+        public static final String SCREENSHOT_EDIT_USER_APP = "screenshot_edit_user_app";
+
+        /** End of ABC system settings**/
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings

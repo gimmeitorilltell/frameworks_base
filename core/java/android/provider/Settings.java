@@ -4645,14 +4645,6 @@ public final class Settings {
         public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
 
         /**
-         * Stores the app to be launched if the user taps on the screenshot notification edit button
-         * @hide
-         */
-        public static final String SCREENSHOT_EDIT_USER_APP = "screenshot_edit_user_app";
-
-        /** End of ABC system settings**/
-
-        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
